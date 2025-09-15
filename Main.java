@@ -6,7 +6,7 @@ public class Main {
         Cashier cashier = new Cashier();
         Scanner sc = new Scanner(System.in);
 
-        // Sample grocery items
+ 
         inventory.addItem("Apple", 20.00, 10);
         inventory.addItem("Banana", 10.00, 15);
         inventory.addItem("Milk", 50.00, 8);
@@ -17,10 +17,11 @@ public class Main {
             System.out.println("1. View Inventory");
             System.out.println("2. Add Item to Cart");
             System.out.println("3. Checkout");
+            System.out.println("4. Add New Item to Inventory");
             System.out.println("0. Exit");
             System.out.print("Enter choice: ");
             choice = sc.nextInt();
-            sc.nextLine();
+            sc.nextLine(); 
 
             switch (choice) {
                 case 1:
@@ -36,6 +37,15 @@ public class Main {
                     break;
                 case 3:
                     cashier.checkout();
+                    break;
+                case 4:
+                    System.out.print("Enter new item name: ");
+                    String newName = sc.nextLine();
+                    System.out.print("Enter price: ");
+                    double price = sc.nextDouble();
+                    System.out.print("Enter quantity: ");
+                    int quantity = sc.nextInt();
+                    inventory.addItem(newName, price, quantity);
                     break;
                 case 0:
                     System.out.println("Goodbye!");
