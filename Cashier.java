@@ -14,15 +14,26 @@ public class Cashier {
     }
 
     public void checkout() {
+        if (cart.isEmpty()) {
+            System.out.println("\nCart is empty. Nothing to checkout.");
+            return;
+        }
+
         double total = 0;
         System.out.println("\n--- Receipt ---");
+        Date now = new Date();
+        System.out.println("Date: " + now);
+        System.out.println("-------------------------");
+
         for (Item item : cart) {
             double subtotal = item.getPrice() * item.getQuantity();
-            System.out.printf("%d x %s @ PHP%.2f = PHP%.2f%n",
+            System.out.printf("%d x %s PHP%.2f = PHP%.2f%n",
                     item.getQuantity(), item.getName(), item.getPrice(), subtotal);
             total += subtotal;
         }
-        System.out.println("TOTAL: PHP" + total);
-        cart.clear();
+        System.out.println("-------------------------");
+        System.out.printf("TOTAL: PHP%.2f%n", total);
+        System.out.println("-------------------------");
+        cart.clear(); 
     }
 }
