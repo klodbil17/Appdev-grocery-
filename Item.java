@@ -29,7 +29,6 @@ public class Item {
 
     @Override
     public String toString() {
-        return name + " (₱" + price + ") - Stock: " + quantity;
+        return name + " (PHP" + price + ") - Stock: " + quantity;
     }
 }
-
